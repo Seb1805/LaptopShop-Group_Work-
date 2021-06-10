@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop.Repositories
 {
-    interface IProduct
+    interface IProductRepo
     {
         public Product GetProductById(int id);
         public IEnumerable<Product> GetProductByFingerprintScanner(bool fingerprintScanner);

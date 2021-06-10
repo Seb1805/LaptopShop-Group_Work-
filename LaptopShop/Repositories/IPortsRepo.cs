@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop.Repositories
 {
-    interface IPorts
+    interface IPortsRepo
     {
         public Ports GetPortById(int id);
         public IEnumerable<Ports> GetPortByType(string typeName);

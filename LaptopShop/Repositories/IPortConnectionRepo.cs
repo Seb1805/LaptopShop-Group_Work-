@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop.Repositories
 {
-    interface IPortConnection
+    interface IPortConnectionRepo
     {
         public PortConnection GetPortConnectionById(int id);
 

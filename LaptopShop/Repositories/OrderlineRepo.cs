@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LaptopShop.Repositories
 {
-    class OrderlineRepo : IOrderline
+    class OrderlineRepo : IOrderlineRepo
     {
         private LaptopContext _context;
 

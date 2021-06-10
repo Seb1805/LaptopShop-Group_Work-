@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LaptopShop.Repositories
 {
-    class ProductRepo : IProduct
+    class ProductRepo : IProductRepo
     {
         private readonly LaptopContext _context;
 

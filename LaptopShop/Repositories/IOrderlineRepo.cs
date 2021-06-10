@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop.Repositories
 {
-    interface IOrderline
+    interface IOrderlineRepo
     {
         public Orderline GetOrderlineById(int id);
         public Orderline GetOrderlineByOrder(int orderId);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop.Repositories
 {
-    interface IPostalCode
+    interface IPostalCodeRepo
     {
         public PostalCode GetPostalCodeById(int id);
         public PostalCode GetPostalCodeByCity(string cityName);

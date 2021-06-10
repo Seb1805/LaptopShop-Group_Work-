@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LaptopShop.Repositories
 {
-    class PostalCodeRepo : IPostalCode
+    class PostalCodeRepo : IPostalCodeRepo
     {
         private LaptopContext _context;
 

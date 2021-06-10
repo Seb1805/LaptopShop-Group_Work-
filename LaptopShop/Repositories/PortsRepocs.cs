@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LaptopShop.Repositories
 {
-    class PortsRepocs : IPorts
+    class PortsRepocs : IPortsRepo
     {
         private readonly LaptopContext _context;
 
