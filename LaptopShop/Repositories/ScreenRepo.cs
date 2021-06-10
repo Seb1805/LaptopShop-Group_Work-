@@ -2,13 +2,14 @@
 using LaptopShop.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace LaptopShop.Repositories
 {
     class ScreenRepo : IScreenRepo
     {
-        private readonly IEnumerable<Screen> _context;
+        private readonly LaptopContext _context;
 
         public ScreenRepo(LaptopContext context)
         {
@@ -17,52 +18,52 @@ namespace LaptopShop.Repositories
 
         public IEnumerable<Screen> GetScreenByAspectRatio(string aspectRatio)
         {
-            return _context.
+            return _context.Screens.Where(s => s.AspectRatio == aspectRatio);
         }
 
-        public IEnumerable<Screen> GetScreenByBrightness(int brightness)
+        public IEnumerable<Screen> GetScreenByBrightness(string brightness)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.Brightness == brightness);
         }
 
-        public IEnumerable<Screen> GetScreenByHDR(bool HDR)
+        public IEnumerable<Screen> GetScreenByHDR(bool hdr)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.HDR == hdr);
         }
 
         public Screen GetScreenById(int screenId)
         {
-            throw new NotImplementedException();
+            return _context.Screens.FirstOrDefault(s => s.ScreenId == screenId);
         }
 
         public IEnumerable<Screen> GetScreenByRefreshRate(int refreshRate)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.RefreshRate == refreshRate);
         }
 
         public IEnumerable<Screen> GetScreenByResolution(string resolution)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.Resolution == resolution);
         }
 
         public IEnumerable<Screen> GetScreenByScreenTech(string screenTech)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.ScreenTechnology == screenTech);
         }
 
         public IEnumerable<Screen> GetScreenBySize(float size)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.Size == size);
         }
 
         public IEnumerable<Screen> GetScreenBySyncType(string syncType)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.SyncType == syncType);
         }
 
         public IEnumerable<Screen> GetScreenByTouch(bool touch)
         {
-            throw new NotImplementedException();
+            return _context.Screens.Where(s => s.Touch == touch);
         }
     }
 }

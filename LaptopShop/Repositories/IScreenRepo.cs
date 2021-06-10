@@ -8,14 +8,14 @@ namespace LaptopShop.Repositories
     interface IScreenRepo
     {
         public Screen GetScreenById(int screenId);
-        public Screen GetScreenByAspectRatio(string aspectRatio);
-        public Screen GetScreenByResolution(string resolution);
-        public Screen GetScreenBySize(float size);
-        public Screen GetScreenByHDR(bool HDR);
-        public Screen GetScreenByRefreshRate(int refreshRate);
-        public Screen GetScreenByScreenTech(string screenTech);
-        public Screen GetScreenByBrightness(int brightness);
-        public Screen GetScreenByTouch(bool touch);
-        public Screen GetScreenBySyncType(string syncType);
+        public IEnumerable<Screen> GetScreenByAspectRatio(string aspectRatio);
+        public IEnumerable<Screen> GetScreenByResolution(string resolution);
+        public IEnumerable<Screen> GetScreenBySize(float size);
+        public IEnumerable<Screen> GetScreenByHDR(bool hdr);
+        public IEnumerable<Screen> GetScreenByRefreshRate(int refreshRate);
+        public IEnumerable<Screen> GetScreenByScreenTech(string screenTech);
+        public IEnumerable<Screen> GetScreenByBrightness(string brightness);
+        public IEnumerable<Screen> GetScreenByTouch(bool touch);
+        public IEnumerable<Screen> GetScreenBySyncType(string syncType);
     }
 }
