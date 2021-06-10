@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using LaptopShop.Repositories;
 
 namespace LaptopShop
 {
@@ -7,11 +8,15 @@ namespace LaptopShop
 
     class Program
     {
-        string connection = "Server=DESKTOP-UKDEA0P\SQLEXPRESS; Database=LaptopShop; Trusted_Connection=True;";
+        string connection = "Server=DESKTOP-UKDEA0P\\SQLEXPRESS; Database=LaptopShop; Trusted_Connection=True;";
 
         static void Main(string[] args)
         {
-            SqlConnection conn = new SqlConnection();
+            LaptopContext laptopContext = new LaptopContext();
+            ColorRepo color = new ColorRepo(laptopContext);
+
+            Console.WriteLine(color.GetColorById(1).ColorName);
+            Console.ReadLine();
         }
     }
 }

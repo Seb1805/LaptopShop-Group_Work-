@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop.Model
 {
-    class OrderLines
+    class Orderline
     {
         public int OrderLineId { get; set; }
         public int OrderId { get; set; }
