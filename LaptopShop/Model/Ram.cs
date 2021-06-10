@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop.Model
 {
-    class Ram
+    class RAM
     {
         public int ramId { get; set; }
         public int capacity { get; set; }
