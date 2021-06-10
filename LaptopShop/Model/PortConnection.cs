@@ -10,5 +10,6 @@ namespace LaptopShop.Model
         public int PortId { get; set; }
         public int Amount { get; set; }
         public int ProductId { get; set; }
+
     }
 }
