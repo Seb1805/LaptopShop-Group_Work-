@@ -6,7 +6,7 @@ namespace LaptopShop.Model
 {
     class Color
     {
-        public int colorId { get; set; }
-        public string description { get; set; }
+        public int ColorId { get; set; }
+        public string ColorName { get; set; }
     }
 }
