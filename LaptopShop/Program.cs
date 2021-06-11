@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data.SqlClient;
-using LaptopShop.Repositories;
+using LaptopShop.Data;
+using System;
 
 namespace LaptopShop
 {
-    
-
     class Program
     {
         string connection = "Server=DESKTOP-UKDEA0P\\SQLEXPRESS; Database=LaptopShop; Trusted_Connection=True;";
@@ -17,6 +14,5 @@ namespace LaptopShop
 
             Console.WriteLine(color.GetColorById(1).ColorName);
             Console.ReadLine();
-        }
     }
 }

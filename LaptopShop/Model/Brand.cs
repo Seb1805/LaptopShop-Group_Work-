@@ -6,7 +6,7 @@ namespace LaptopShop.Model
 {
     class Brand
     {
-        public int brandId { get; set; }
-        public string name { get; set; }
+        public int BrandId { get; set; }
+        public string BrandName { get; set; }
     }
 }

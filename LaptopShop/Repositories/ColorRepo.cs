@@ -14,20 +14,33 @@ namespace LaptopShop.Repositories
         {
             _laptopContext = laptopContext;
         }
+﻿using LaptopShop.Data;
+using LaptopShop.Model;
+using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace LaptopShop.Repositories
+{
+    class ColorRepo
+    {
+        private readonly LaptopContext _context;
+
+        public ColorRepo(LaptopContext context)
+        {
+            _context = context;
+        }
 
         public Color GetColorById(int id)
         {
-            return _laptopContext.colors.FirstOrDefault(c => c.ColorId == id);
+            return _context.Colors.FirstOrDefault(c => c.ColorId == id);
         }
 
         public Color GetColorByName(string name)
         {
             return _laptopContext.colors.FirstOrDefault(c => c.ColorName == name);
         }
-
-        public IEnumerable<Color> GetColors()
-        {
-            return _laptopContext.colors.ToList();
         }
     }
 }

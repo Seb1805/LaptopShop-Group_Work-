@@ -4,11 +4,11 @@ using System.Text;
 
 namespace LaptopShop.Model
 {
-    class Ram
+    class RAM
     {
-        public int ramId { get; set; }
-        public int capacity { get; set; }
-        public int mhz { get; set; }
-        public int brandId { get; set; }
+        public int RamId { get; set; }
+        public int Capacity { get; set; }
+        public int Mhz { get; set; }
+        public int BrandId { get; set; }
     }
 }
