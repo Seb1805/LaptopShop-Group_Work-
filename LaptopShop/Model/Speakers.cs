@@ -6,7 +6,7 @@ namespace LaptopShop.Model
 {
     class Speakers
     {
-        public int speakersId { get; set; }
-        public string description { get; set; }
+        public int SpeakersId { get; set; }
+        public string Description { get; set; }
     }
 }
