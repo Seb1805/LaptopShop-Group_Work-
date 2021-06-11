@@ -22,7 +22,7 @@ namespace LaptopShop.Repositories
 
         public Speakers GetSpeakerById(int id)
         {
-            return _context.Speakers.FirstOrDefault(s => s.SpeakersId == id);
+            return _context.Speakers.FirstOrDefault(s => s.SpeakerId == id);
         }
     }
 }

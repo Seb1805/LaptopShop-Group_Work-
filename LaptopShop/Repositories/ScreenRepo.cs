@@ -21,7 +21,7 @@ namespace LaptopShop.Repositories
             return _context.Screens.Where(s => s.AspectRatio == aspectRatio);
         }
 
-        public IEnumerable<Screen> GetScreenByBrightness(string brightness)
+        public IEnumerable<Screen> GetScreenByBrightness(int brightness)
         {
             return _context.Screens.Where(s => s.Brightness == brightness);
         }

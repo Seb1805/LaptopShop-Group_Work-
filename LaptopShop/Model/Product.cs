@@ -10,7 +10,6 @@ namespace LaptopShop.Model
         public int CPUId { get; set; }
         public int GPUId { get; set; }
         public int RAMId { get; set; }
-        public int PortConnectionId { get; set; }
         public int ColorId { get; set; }
         public int BrandId { get; set; }
         public int StorageId { get; set; }

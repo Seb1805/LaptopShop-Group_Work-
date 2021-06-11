@@ -23,7 +23,7 @@ namespace LaptopShop.Repositories
 
         public PostalCode GetPostalCodeById(int id)
         {
-            return _context.PostalCodes.FirstOrDefault(pc => pc.PostalCodeId == id);
+            return _context.PostalCodes.FirstOrDefault(pc => pc.Postal_Code == id);
         }
     }
 }

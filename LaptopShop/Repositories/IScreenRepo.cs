@@ -14,7 +14,7 @@ namespace LaptopShop.Repositories
         public IEnumerable<Screen> GetScreenByHDR(bool hdr);
         public IEnumerable<Screen> GetScreenByRefreshRate(int refreshRate);
         public IEnumerable<Screen> GetScreenByScreenTech(string screenTech);
-        public IEnumerable<Screen> GetScreenByBrightness(string brightness);
+        public IEnumerable<Screen> GetScreenByBrightness(int brightness);
         public IEnumerable<Screen> GetScreenByTouch(bool touch);
         public IEnumerable<Screen> GetScreenBySyncType(string syncType);
     }
