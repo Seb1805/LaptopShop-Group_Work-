@@ -1,28 +1,23 @@
-using System.Linq;
+﻿using LaptopShop.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace LaptopShop.Repositories
 {
     class AddressRepo
     {
-        private readonly LaptopContext _context;
+        private readonly LaptopContext _laptopContext;
 
-        public AddressRepo(LaptopContext context)
+        public AddressRepo(LaptopContext laptopContext)
         {
-            _context = context;
+            _laptopContext = laptopContext;
         }
 
-        public Address GetAddressById(int id)
+        public Address GetAddressByID(int id)
         {
-            return _laptopContext.Addresses.First(a => a.AddressId == id);
-        }
-
-        public IEnumerable<Address> GetAllAdresses()
-        {
-            return _laptopContext.Addresses.ToList();
-            return _context.Addresses.FirstOrDefault(a => a.CustomerId == id);
+            return _laptopContext.addresses.First(a => a.AddressId == id);
         }
     }
 }

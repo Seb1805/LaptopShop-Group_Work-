@@ -1,3 +1,19 @@
+﻿using LaptopShop.Model;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Linq;
+
+namespace LaptopShop.Repositories
+{
+    class ColorRepo : IColor
+    {
+        private readonly LaptopContext _laptopContext;
+
+        public ColorRepo(LaptopContext laptopContext)
+        {
+            _laptopContext = laptopContext;
+        }
 ﻿using LaptopShop.Data;
 using LaptopShop.Model;
 using System.Linq;
@@ -23,7 +39,8 @@ namespace LaptopShop.Repositories
 
         public Color GetColorByName(string name)
         {
-            return _context.Colors.FirstOrDefault(c => c.ColorName == name);
+            return _laptopContext.colors.FirstOrDefault(c => c.ColorName == name);
+        }
         }
     }
 }
