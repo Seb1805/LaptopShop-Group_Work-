@@ -9,6 +9,8 @@
 *.user
 *.userosscache
 *.sln.docstates
+LaptopShop/Program.cs
+LaptopShop/Data/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -338,3 +340,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/LaptopShop/Repositories/AddressRepo.cs

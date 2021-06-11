@@ -9,26 +9,26 @@ namespace LaptopShop.Repositories
 {
     class BrandRepo : IBrand
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
-        public BrandRepo(LaptopContext laptopContext)
+        public BrandRepo(LaptopContext context)
         {
-            _laptopContext = laptopContext;
+            _context = context;
         }
 
         public IEnumerable<Brand> GetAllBrands()
         {
-            return _laptopContext.Brands.ToList();
+            return _context.Brands.ToList();
         }
 
         public Brand GetBrandById(int id)
         {
-            return _laptopContext.Brands.First(b => b.BrandId == id);
+            return _context.Brands.First(b => b.BrandId == id);
         }
 
         public Brand GetBrandByName(string name)
         {
-            return _laptopContext.Brands.First(b => b.BrandName == name);
+            return _context.Brands.First(b => b.BrandName == name);
         }
     }
 }

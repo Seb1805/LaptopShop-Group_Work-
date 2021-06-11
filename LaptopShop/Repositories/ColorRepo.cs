@@ -1,11 +1,10 @@
-﻿using LaptopShop.Data;
-using LaptopShop.Model;
-using System.Linq;
+﻿using LaptopShop.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
-namespace LaptopShop.Repositories
+namespace LaptopShop.Data
 {
     class ColorRepo
     {
@@ -18,12 +17,16 @@ namespace LaptopShop.Repositories
 
         public Color GetColorById(int id)
         {
-            return _context.Colors.FirstOrDefault(c => c.ColorId == id);
+            return _context.Colors.First(c => c.ColorId == id);
         }
 
+        public List<Color> GetAll()
+        {
+            return _context.Colors.ToList();
+        }
         public Color GetColorByName(string name)
         {
-            return _context.Colors.FirstOrDefault(c => c.ColorName == name);
+            return _context.Colors.First(c => c.ColorName == name);
         }
     }
 }
