@@ -1,5 +1,3 @@
-﻿using LaptopShop.Data;
-using LaptopShop.Model;
 using System.Linq;
 using System;
 using System.Collections.Generic;
@@ -18,6 +16,12 @@ namespace LaptopShop.Repositories
 
         public Address GetAddressById(int id)
         {
+            return _laptopContext.Addresses.First(a => a.AddressId == id);
+        }
+
+        public IEnumerable<Address> GetAllAdresses()
+        {
+            return _laptopContext.Addresses.ToList();
             return _context.Addresses.FirstOrDefault(a => a.CustomerId == id);
         }
     }

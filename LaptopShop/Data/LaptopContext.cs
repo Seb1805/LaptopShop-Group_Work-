@@ -29,11 +29,4 @@ namespace LaptopShop.Data
         public DbSet<Speakers> Speakers { get; set; }
         public DbSet<Storage> Storages { get; set; }
         public DbSet<Wifi> Wifi { get; set; }
-
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        { 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-UKDEA0P\\SQLEXPRESS; Database=LaptopShop; Trusted_Connection=True;");
-        }
-    }
 }

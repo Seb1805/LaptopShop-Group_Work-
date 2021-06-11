@@ -9,6 +9,6 @@ namespace LaptopShop.Model
         public int BatteryId { get; set; }
         public int ChargerId { get; set; }
         public int Capacity { get; set; }
-        public string type { get; set; }
+        public string Type { get; set; }
     }
 }
