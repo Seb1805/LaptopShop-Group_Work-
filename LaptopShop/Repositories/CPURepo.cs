@@ -8,46 +8,46 @@ namespace LaptopShop.Repositories
 {
     class CPURepo : ICPU
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
-        public CPURepo(LaptopContext laptopContext)
+        public CPURepo(LaptopContext context)
         {
-            _laptopContext = laptopContext;
+            _context = context;
         }
 
         public CPU GetCPUById(int id)
         {
-            return _laptopContext.cpu.FirstOrDefault(c => c.CPUId == id);
+            return _context.CPUs.FirstOrDefault(c => c.CPUId == id);
         }
 
         public IEnumerable<CPU> GetCPUs()
         {
-            return _laptopContext.cpu.ToList();
+            return _context.CPUs.ToList();
         }
 
         public IEnumerable<CPU> GetCPUsByBrandId(int brandId)
         {
-            return _laptopContext.cpu.Where(c => c.brandId == brandId).ToList();
+            return _context.CPUs.Where(c => c.BrandId == brandId).ToList();
         }
 
         public IEnumerable<CPU> GetCPUsByGeneration(int generation)
         {
-            return _laptopContext.cpu.Where(c => c.Generation == generation).ToList();
+            return _context.CPUs.Where(c => c.Generation == generation).ToList();
         }
 
         // TODO: range
         public IEnumerable<CPU> GetCPUsByGHzRange(float ghzMin, float ghzMax)
         {
-            return _laptopContext.cpu.Where(c => c.ghz > ghzMin && c.ghz < ghzMax).ToList();
+            return _context.CPUs.Where(c => c.Ghz > ghzMin && c.Ghz < ghzMax).ToList();
         }
         public IEnumerable<CPU> GetCPUsByGHz(float ghz)
         {
-            return _laptopContext.cpu.Where(c => c.ghz < ghz).ToList();
+            return _context.CPUs.Where(c => c.Ghz < ghz).ToList();
         }
 
         public IEnumerable<CPU> GetCPUsByModelNumber(string modelNumber)
         {
-            return _laptopContext.cpu.Where(c => c.modelNumber.Contains(modelNumber)).ToList();
+            return _context.CPUs.Where(c => c.ModelNumber.Contains(modelNumber)).ToList();
         }
     }
 }

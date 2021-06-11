@@ -6,9 +6,9 @@ namespace LaptopShop.Model
 {
     class GPU
     {
-        public int gpuId { get; set; }
-        public string description { get; set; }
-        public int vram { get; set; }
-        public int brandId { get; set; }
+        public int GpuId { get; set; }
+        public string Description { get; set; }
+        public int Vram { get; set; }
+        public int BrandId { get; set; }
     }
 }

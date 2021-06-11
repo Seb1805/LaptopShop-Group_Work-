@@ -8,25 +8,25 @@ namespace LaptopShop.Repositories
 {
     class GPURepo : IGPU
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
         public GPURepo(LaptopContext laptopContext)
         {
-            _laptopContext = laptopContext;
+            _context = laptopContext;
         }
 
         public GPU GetGPU(int id)
         {
-            return _laptopContext.gpu.FirstOrDefault(g => g.gpuId == id);
+            return _context.GPUs.FirstOrDefault(g => g.GpuId == id);
         }
         public IEnumerable<GPU> GetGPUsByDescription(string description)
         {
-            return _laptopContext.gpu.Where(g => g.description.Contains(description)).ToList();
+            return _context.GPUs.Where(g => g.Description.Contains(description)).ToList();
         }
 
         public IEnumerable<GPU> GetGPUsByBrandId(int brandId)
         {
-            return _laptopContext.gpu.Where(g => g.brandId == brandId).ToList();
+            return _context.GPUs.Where(g => g.BrandId == brandId).ToList();
         }
     }
 }
