@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using LaptopShop.Data;
 
 namespace LaptopShop.Repositories
 {
@@ -17,7 +18,7 @@ namespace LaptopShop.Repositories
 
         public Address GetAddressByID(int id)
         {
-            return _context.addresses.First(a => a.AddressId == id);
+            return _context.Addresses.First(a => a.AddressId == id);
         }
     }
 }
