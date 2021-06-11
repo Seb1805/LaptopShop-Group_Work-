@@ -1,33 +1,32 @@
 ﻿using LaptopShop.Model;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
 
-namespace LaptopShop.Repositories
+namespace LaptopShop.Data
 {
-    class ColorRepo : IColor
+    class ColorRepo
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
-        public ColorRepo(LaptopContext laptopContext)
+        public ColorRepo(LaptopContext context)
         {
-            _laptopContext = laptopContext;
+            _context = context;
         }
 
         public Color GetColorById(int id)
         {
-            return _laptopContext.colors.FirstOrDefault(c => c.ColorId == id);
+            return _context.Colors.First(c => c.ColorId == id);
         }
 
+        public List<Color> GetAll()
+        {
+            return _context.Colors.ToList();
+        }
         public Color GetColorByName(string name)
         {
-            return _laptopContext.colors.FirstOrDefault(c => c.ColorName == name);
-        }
-
-        public IEnumerable<Color> GetColors()
-        {
-            return _laptopContext.colors.ToList();
+            return _context.Colors.First(c => c.ColorName == name);
         }
     }
 }

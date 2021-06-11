@@ -6,11 +6,11 @@ namespace LaptopShop.Model
 {
     class Keyboard
     {
-        public int keyboardId { get; set; }
+        public int KeyboardId { get; set; }
         public bool Numpad { get; set; }
-        public bool backlight { get; set; } 
-        public string language { get; set; } 
-        public string layout { get; set; } 
+        public bool Backlight { get; set; } 
+        public string Language { get; set; } 
+        public string Layout { get; set; } 
 
     }
 }

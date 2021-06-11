@@ -6,7 +6,7 @@ namespace LaptopShop.Model
 {
     class Bluetooth
     {
-        public int bluetoothId { get; set; }
-        public string description { get; set; }
+        public int BluetoothId { get; set; }
+        public string Description { get; set; }
     }
 }

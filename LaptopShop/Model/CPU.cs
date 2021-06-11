@@ -8,8 +8,8 @@ namespace LaptopShop.Model
     {
         public int CPUId { get; set; }
         public int Generation { get; set; }
-        public string modelNumber{ get; set; }
-        public float ghz { get; set; }
-        public int brandId { get; set; }
+        public string ModelNumber{ get; set; }
+        public float Ghz { get; set; }
+        public int BrandId { get; set; }
     }
 }
