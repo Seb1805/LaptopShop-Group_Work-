@@ -8,16 +8,16 @@ namespace LaptopShop.Repositories
 {
     class AddressRepo
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
-        public AddressRepo(LaptopContext laptopContext)
+        public AddressRepo(LaptopContext context)
         {
-            _laptopContext = laptopContext;
+            _context = context;
         }
 
         public Address GetAddressByID(int id)
         {
-            return _laptopContext.addresses.First(a => a.AddressId == id);
+            return _context.addresses.First(a => a.AddressId == id);
         }
     }
 }

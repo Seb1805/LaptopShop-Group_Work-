@@ -9,21 +9,21 @@ namespace LaptopShop.Repositories
 {
     class ChargerRepo : ICharger
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
-        public ChargerRepo(LaptopContext laptopContext)
+        public ChargerRepo(LaptopContext context)
         {
-            _laptopContext = laptopContext;
+            _context = context;
         }
 
         public IEnumerable<Charger> GetAllCharger()
         {
-            return _laptopContext.Chargers.ToList();
+            return _context.Chargers.ToList();
         }
 
         public Charger GetChargerById(int id)
         {
-            return _laptopContext.Chargers.First(c => c.ChargerId == id);
+            return _context.Chargers.First(c => c.ChargerId == id);
         }
     }
 }

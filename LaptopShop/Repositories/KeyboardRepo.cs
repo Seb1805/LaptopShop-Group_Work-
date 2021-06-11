@@ -8,36 +8,36 @@ namespace LaptopShop.Repositories
 {
     class KeyboardRepo : IKeyboard
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
-        public KeyboardRepo(LaptopContext laptopContext)
+        public KeyboardRepo(LaptopContext context)
         {
-            _laptopContext = laptopContext;
+            _context = context;
         }
 
         public Keyboard GetKeyboardById(int id)
         {
-            return _laptopContext.keyboard.FirstOrDefault(k => k.keyboardId == id);
+            return _context.Keyboard.FirstOrDefault(k => k.KeyboardId == id);
         }
 
         IEnumerable<Keyboard> IKeyboard.GetKeyboardsByNumpad(bool numpad)
         {
-            return _laptopContext.keyboard.Where(k => k.Numpad == numpad).ToList();
+            return _context.Keyboard.Where(k => k.Numpad == numpad).ToList();
         }
 
         IEnumerable<Keyboard> IKeyboard.GetKeyboardsByBacklight(bool backlight)
         {
-            return _laptopContext.keyboard.Where(k => k.backlight == backlight).ToList();
+            return _context.Keyboard.Where(k => k.Backlight == backlight).ToList();
         }
 
         IEnumerable<Keyboard> IKeyboard.GetKeyboardsByLanguage(string language)
         {
-            return _laptopContext.keyboard.Where(k => k.language == language).ToList();
+            return _context.Keyboard.Where(k => k.Language == language).ToList();
         }
 
         IEnumerable<Keyboard> IKeyboard.GetKeyboardsByLayout(string layout)
         {
-            return _laptopContext.keyboard.Where(k => k.layout == layout).ToList();
+            return _context.Keyboard.Where(k => k.Layout == layout).ToList();
         }
     }
 }

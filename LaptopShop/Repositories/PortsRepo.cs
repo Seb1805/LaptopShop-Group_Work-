@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using LaptopShop.Data;
 using LaptopShop.Model;
 using System.Linq;
+using LaptopShop.Data;
 
 namespace LaptopShop.Repositories
 {
-    class PortsRepocs : IPortsRepo
+    class PortsRepo : IPortsRepo
     {
         private readonly LaptopContext _context;
 
-        public PortsRepocs(LaptopContext context)
+        public PortsRepo(LaptopContext context)
         {
             _context = context;
         }

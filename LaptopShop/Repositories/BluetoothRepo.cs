@@ -9,26 +9,26 @@ namespace LaptopShop.Repositories
 {
     class BluetoothRepo : IBluetooth
     {
-        private readonly LaptopContext _laptopContext;
+        private readonly LaptopContext _context;
 
-        public BluetoothRepo(LaptopContext laptopContext)
+        public BluetoothRepo(LaptopContext context)
         {
-            _laptopContext = laptopContext;
+            _context = context;
         }
 
         public IEnumerable<Bluetooth> GetAllBluetooth()
         {
-            return _laptopContext.Bluetooth.ToList();
+            return _context.Bluetooth.ToList();
         }
 
         public Bluetooth GetBluetoothByDescription(string desc)
         {
-            return _laptopContext.Bluetooth.First(b => b.Description == desc);
+            return _context.Bluetooth.First(b => b.Description == desc);
         }
 
         public Bluetooth GetBluetoothById(int id)
         {
-            return _laptopContext.Bluetooth.First(b => b.BluetoothId == id);
+            return _context.Bluetooth.First(b => b.BluetoothId == id);
         }
     }
 }
