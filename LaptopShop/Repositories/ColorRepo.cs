@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LaptopShop.Repositories
 {
-    class ColorRepo
+    class ColorRepo : IColor
     {
         private readonly LaptopContext _laptopContext;
 
@@ -17,13 +17,17 @@ namespace LaptopShop.Repositories
 
         public Color GetColorById(int id)
         {
-            return _laptopContext.colors.First(c => c.ColorId == id);
+            return _laptopContext.colors.FirstOrDefault(c => c.ColorId == id);
         }
-        public Color GetColorByDescription(string name)
+
+        public Color GetColorByName(string name)
         {
-            return _laptopContext.colors.First(c => c.ColorName == name);
+            return _laptopContext.colors.FirstOrDefault(c => c.ColorName == name);
         }
 
-
+        public IEnumerable<Color> GetColors()
+        {
+            return _laptopContext.colors.ToList();
+        }
     }
 }
