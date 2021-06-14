@@ -17,22 +17,22 @@ namespace LaptopShop.Repositories
         }
         public IEnumerable<Product> GetProductByFingerprintScanner(bool fingerprintScanner)
         {
-            return _context.Products.Where(p => p.FingerprintScanner == fingerprintScanner);
+            return _context.Product.Where(p => p.FingerprintScanner == fingerprintScanner);
         }
 
         public Product GetProductById(int id)
         {
-            return _context.Products.FirstOrDefault(p => p.ProductId == id);
+            return _context.Product.FirstOrDefault(p => p.ProductId == id);
         }
 
         public IEnumerable<Product> GetProductByMicrophone(bool mic)
         {
-            return _context.Products.Where(p => p.Microphone == mic);
+            return _context.Product.Where(p => p.Microphone == mic);
         }
 
         public IEnumerable<Product> GetProductByModelNumber(string modelNumber)
         {
-            return _context.Products.Where(p => p.ModelNumber.Contains(modelNumber));
+            return _context.Product.Where(p => p.ModelNumber.Contains(modelNumber));
         }
 
         public IEnumerable<Product> SearchForProduct(string searchQuery)
@@ -42,12 +42,12 @@ namespace LaptopShop.Repositories
 
         public IEnumerable<Product> GetProductByWebcam(bool webcam)
         {
-            return _context.Products.Where(p => p.Webcam == webcam);
+            return _context.Product.Where(p => p.Webcam == webcam);
         }
 
         public IEnumerable<Product> GetProductByWeight(int weight)
         {
-            return _context.Products.Where(p => p.Weight <= weight);
+            return _context.Product.Where(p => p.Weight <= weight);
         }
     }
 }
