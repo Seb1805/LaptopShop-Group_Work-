@@ -17,17 +17,17 @@ namespace LaptopShop.Repositories
         }
         public IEnumerable<PortConnection> GetConnectionByAmount(int amount)
         {
-            return _context.PortConnections.Where(pc => pc.Amount >= amount);
+            return _context.PortConnection.Where(pc => pc.Amount >= amount);
         }
 
         public PortConnection GetPortConnectionById(int id)
         {
-            return _context.PortConnections.FirstOrDefault(pc => pc.PortConnectionId == id);
+            return _context.PortConnection.FirstOrDefault(pc => pc.PortConnectionId == id);
         }
 
         public PortConnection GetPortConnectionByProduct(int productId)
         {
-            return _context.PortConnections.FirstOrDefault(pc => pc.ProductId == productId);
+            return _context.PortConnection.FirstOrDefault(pc => pc.ProductId == productId);
         }
     }
 }

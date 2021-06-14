@@ -13,7 +13,7 @@ namespace LaptopShop.Model
         public bool HDR { get; set; }
         public int RefreshRate { get; set; }
         public string ScreenTechnology { get; set; }
-        public string Brightness { get; set; }
+        public int Brightness { get; set; }
         public bool Touch { get; set; }
         public string SyncType { get; set; }
     }

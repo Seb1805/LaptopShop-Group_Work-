@@ -18,16 +18,16 @@ namespace LaptopShop.Repositories
 
         public GPU GetGPU(int id)
         {
-            return _context.GPUs.FirstOrDefault(g => g.GpuId == id);
+            return _context.GPU.FirstOrDefault(g => g.GpuId == id);
         }
         public IEnumerable<GPU> GetGPUsByDescription(string description)
         {
-            return _context.GPUs.Where(g => g.Description.Contains(description)).ToList();
+            return _context.GPU.Where(g => g.Description.Contains(description)).ToList();
         }
 
         public IEnumerable<GPU> GetGPUsByBrandId(int brandId)
         {
-            return _context.GPUs.Where(g => g.BrandId == brandId).ToList();
+            return _context.GPU.Where(g => g.BrandId == brandId).ToList();
         }
     }
 }
