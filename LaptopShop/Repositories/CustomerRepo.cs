@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using LaptopShop.Model;
+using LaptopShop.Data;
 
 namespace LaptopShop.Repositories
 {
@@ -36,7 +37,7 @@ namespace LaptopShop.Repositories
         }
         public Customer GetCustomerByEmail(string email)
         {
-            return _context.Customer.FirstOrDefault(c => c.Email == email);
+            return _context.Customer.FirstOrDefault(c => c.EmailAddress == email);
         }
     }
 }

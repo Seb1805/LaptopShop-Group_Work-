@@ -25,12 +25,12 @@ namespace LaptopShop.Repositories
 
         public Orderline GetOrderlineById(int id)
         {
-            return _context.Orderlines.FirstOrDefault(ol => ol.OrderLineId == id);
+            return _context.Orderline.FirstOrDefault(ol => ol.OrderLineId == id);
         }
 
         public Orderline GetOrderlineByOrder(int orderId)
         {
-            return _context.Orderlines.FirstOrDefault(ol => ol.OrderId == orderId);
+            return _context.Orderline.FirstOrDefault(ol => ol.OrderId == orderId);
         }
     }
 }

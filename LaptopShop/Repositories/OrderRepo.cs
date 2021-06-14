@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using LaptopShop.Model;
 using System.Linq;
+using LaptopShop.Data;
 
 namespace LaptopShop.Repositories
 {
@@ -17,17 +18,17 @@ namespace LaptopShop.Repositories
 
         public Order GetOrderbyId(int id)
         {
-            return _context.Orders.FirstOrDefault(o => o.OrderId == id);
+            return _context.Order.FirstOrDefault(o => o.OrderId == id);
         }
 
         public IEnumerable<Order> GetOrdersbyAddressId(int addressId)
         {
-            return _context.Orders.Where(o => o.AddressId == addressId).ToList();
+            return _context.Order.Where(o => o.AddressId == addressId).ToList();
         }
 
         public IEnumerable<Order> GetOrdersbyCustomerId(int customerId)
         {
-            return _context.Orders.Where(o => o.CustomerId == customerId).ToList();
+            return _context.Order.Where(o => o.CustomerId == customerId).ToList();
         }
     }
 }
