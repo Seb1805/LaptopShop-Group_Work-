@@ -6,6 +6,7 @@ namespace LaptopShop.Model
 {
     class PostalCode
     {
+        
         public int PostalCodeId { get; set; }
         public string City { get; set; }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using LaptopShop.Model;
 using System.Linq;
+using LaptopShop.Data;
 
 namespace LaptopShop.Repositories
 {
