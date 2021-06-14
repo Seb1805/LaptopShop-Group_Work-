@@ -16,7 +16,6 @@ namespace LaptopShop.Model
         public int BatteryId { get; set; }
         public int ScreenId { get; set; }
         public int Weight { get;set; }
-        public bool DockingStation { get; set; }
         public bool FingerprintScanner { get; set; }
         public int SpeakerId { get;set; }
         public int WifiId { get; set; }
@@ -25,6 +24,7 @@ namespace LaptopShop.Model
         public bool Microphone { get; set; }
         public bool Webcam { get; set; }
         public string ModelNumber { get; set; }
+        public int Price { get; set; }
 
     }
 }

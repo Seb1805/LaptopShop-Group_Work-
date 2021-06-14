@@ -9,7 +9,7 @@ namespace LaptopShop.Model
         public int ChargerId { get; set; }
         public string Voltage { get; set; }
         public string Current { get; set; }
-        public string Adaoptor { get; set; }
+        public string Adaptor { get; set; }
         public bool Ground { get; set; }
     }
 }
