@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace LaptopShop.Model
 {
     class Charger
     {
+        [Key]
         public int ChargerId { get; set; }
         public string Voltage { get; set; }
         public string Current { get; set; }
