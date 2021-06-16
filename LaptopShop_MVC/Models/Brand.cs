@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Brand
+    public class Brand
     {
         public int BrandId { get; set; }
         public string BrandName { get; set; }

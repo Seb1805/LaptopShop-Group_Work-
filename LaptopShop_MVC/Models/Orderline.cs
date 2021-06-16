@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Orderline
+    public class Orderline
     {
         public int OrderLineId { get; set; }
         public int OrderId { get; set; }

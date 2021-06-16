@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaptopShop", "LaptopShop\LaptopShop.csproj", "{8BC2E20F-CA01-4497-874A-5635C44B327D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopShop_MVC", "LaptopShop_MVC\LaptopShop_MVC.csproj", "{6DD0487A-30DE-4A9A-93D2-4C553E485974}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopShop_MVC", "LaptopShop_MVC\LaptopShop_MVC.csproj", "{915449B1-0B3A-4FC8-B95D-1BAE716B46D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{8BC2E20F-CA01-4497-874A-5635C44B327D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BC2E20F-CA01-4497-874A-5635C44B327D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BC2E20F-CA01-4497-874A-5635C44B327D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DD0487A-30DE-4A9A-93D2-4C553E485974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DD0487A-30DE-4A9A-93D2-4C553E485974}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DD0487A-30DE-4A9A-93D2-4C553E485974}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DD0487A-30DE-4A9A-93D2-4C553E485974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{915449B1-0B3A-4FC8-B95D-1BAE716B46D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915449B1-0B3A-4FC8-B95D-1BAE716B46D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915449B1-0B3A-4FC8-B95D-1BAE716B46D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915449B1-0B3A-4FC8-B95D-1BAE716B46D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

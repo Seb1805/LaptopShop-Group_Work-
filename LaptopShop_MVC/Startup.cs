@@ -1,13 +1,16 @@
+using LaptopShop_MVC.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace LaptopShop_MVC
 {
@@ -24,6 +27,8 @@ namespace LaptopShop_MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<LaptopContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("LaptopShop")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

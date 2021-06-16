@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Speaker
+    public class Speaker
     {
         [Key]
         public int SpeakerId { get; set; }
