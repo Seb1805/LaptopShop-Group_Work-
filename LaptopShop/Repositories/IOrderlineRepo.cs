@@ -10,6 +10,6 @@ namespace LaptopShop.Repositories
         public Orderline GetOrderlineById(int id);
         public Orderline GetOrderlineByOrder(int orderId);
 
-        public void AddOrderline(int orderId, int productId);
+        public void AddOrderline(Orderline ol);
     }
 }

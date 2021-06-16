@@ -9,5 +9,10 @@ namespace LaptopShop.Model
         public int OrderLineId { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
+
+        public override string ToString()
+        {
+            return $"OrderLineId: {OrderLineId}\nOrderId: {OrderId}\nProductId: {ProductId}";
+        }
     }
 }

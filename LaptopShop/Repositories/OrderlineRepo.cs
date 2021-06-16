@@ -16,21 +16,20 @@ namespace LaptopShop.Repositories
             _context = context;
         }
 
-
-        public void AddOrderline(int orderId, int productId)
-        {
-            _context.Add(new Orderline() { OrderId = orderId, ProductId = productId });
-            _context.SaveChanges();
-        }
-
         public Orderline GetOrderlineById(int id)
         {
-            return _context.Orderline.FirstOrDefault(ol => ol.OrderLineId == id);
+            return _context.Orderlines.FirstOrDefault(ol => ol.OrderLineId == id);
         }
 
         public Orderline GetOrderlineByOrder(int orderId)
         {
-            return _context.Orderline.FirstOrDefault(ol => ol.OrderId == orderId);
+            return _context.Orderlines.FirstOrDefault(ol => ol.OrderId == orderId);
+        }
+
+        public void AddOrderline(Orderline ol)
+        {
+            _context.Orderlines.Add(ol);
+            _context.SaveChanges();
         }
     }
 }
