@@ -9,5 +9,6 @@ namespace LaptopShop.Model
         public int AddressId { get; set; }
         public string Street { get; set; }
         public int PostalCode { get; set; }
+        public int CustomerId { get; set; }
     }
 }

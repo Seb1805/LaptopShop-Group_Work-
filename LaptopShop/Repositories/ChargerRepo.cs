@@ -18,12 +18,12 @@ namespace LaptopShop.Repositories
 
         public IEnumerable<Charger> GetAllCharger()
         {
-            return _context.Charger.ToList();
+            return _context.Chargers.ToList();
         }
 
         public Charger GetChargerById(int id)
         {
-            return _context.Charger.First(c => c.ChargerId == id);
+            return _context.Chargers.First(c => c.ChargerId == id);
         }
     }
 }

@@ -18,7 +18,13 @@ namespace LaptopShop.Repositories
 
         public Address GetAddressByID(int id)
         {
-            return _context.Address.First(a => a.AddressId == id);
+            return _context.Addresses.First(a => a.AddressId == id);
+        }
+
+        internal Address GetAddressByCustomerId(int customerId)
+        {
+            return _context.Addresses.First(a => a.CustomerId == customerId);
+
         }
     }
 }
