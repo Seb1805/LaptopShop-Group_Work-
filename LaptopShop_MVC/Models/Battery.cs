@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Battery
+    public class Battery
     {
 
         public int BatteryId { get; set; }

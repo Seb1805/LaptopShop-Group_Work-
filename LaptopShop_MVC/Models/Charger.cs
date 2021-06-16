@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Charger
+    public class Charger
     {
         [Key]
         public int ChargerId { get; set; }

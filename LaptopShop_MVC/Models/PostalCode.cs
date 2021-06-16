@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class PostalCode
+    public class PostalCode
     {
         [Key]
         public int Postal_Code { get; set; }

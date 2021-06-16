@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Customer
+    public class Customer
     {
         public int CustomerId { get; set; }
         public string LastName { get; set; }

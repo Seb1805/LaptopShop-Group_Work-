@@ -6,9 +6,14 @@ using System.Text;
 
 namespace LaptopShop_MVC.Data
 {
-    class LaptopContext : DbContext
+    public class LaptopContext : DbContext
     {
-        private string conString = "Server=LAPTOP-7040NCS2\\SQLEXPRESS;Database=LaptopShop;Trusted_Connection=True;";
+
+
+        public LaptopContext(DbContextOptions<LaptopContext> options) : base(options)
+        {
+
+        }
 
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Battery> Batteries { get; set; }
@@ -31,13 +36,6 @@ namespace LaptopShop_MVC.Data
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Storage> Storages { get; set; }
         public DbSet<Wifi> Wifi { get; set; }
-
-
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(conString);
-        }
 
     }
 }

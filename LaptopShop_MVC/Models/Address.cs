@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Address
+    public class Address
     {
         public int AddressId { get; set; }
         public string Street { get; set; }

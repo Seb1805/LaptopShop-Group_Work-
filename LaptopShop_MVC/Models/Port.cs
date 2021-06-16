@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Port
+    public class Port
     {
         [Key]
         public int PortId { get; set; }

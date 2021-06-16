@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class CPU
+    public class CPU
     {
         public int CPUId { get; set; }
         public int Generation { get; set; }

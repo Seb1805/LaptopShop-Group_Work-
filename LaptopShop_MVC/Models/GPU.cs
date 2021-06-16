@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class GPU
+    public class GPU
     {
         public int GpuId { get; set; }
         public string Description { get; set; }

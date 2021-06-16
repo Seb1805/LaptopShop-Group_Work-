@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Keyboard
+    public class Keyboard
     {
         public int KeyboardId { get; set; }
         public bool Numpad { get; set; }

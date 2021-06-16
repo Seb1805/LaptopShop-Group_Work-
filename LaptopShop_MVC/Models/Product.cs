@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Product
+    public class Product
     {
         public int ProductId { get; set; }
         public int CPUId { get; set; }

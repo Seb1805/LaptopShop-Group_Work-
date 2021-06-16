@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Order
+    public class Order
     {
         [Key]
         public int OrderId { get; set; }

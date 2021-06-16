@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LaptopShop_MVC.Models
 {
-    class Screen
+    public class Screen
     {
         public int ScreenId { get; set; }
         public string AspectRatio { get; set; }
