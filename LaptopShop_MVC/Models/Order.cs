@@ -12,6 +12,11 @@ namespace LaptopShop_MVC.Models
         public int CustomerId { get; set; }
         public int AddressId { get; set; }
 
+        public virtual Customer Customer { get; set; }
+        public virtual Address Address { get; set; }
+
+        public virtual ICollection<Orderline> Orderlines { get; set; }
+
         public override string ToString()
         {
             return $"OrderId: {OrderId}\nCustomerId: {CustomerId}\nAddressId: {AddressId}";
