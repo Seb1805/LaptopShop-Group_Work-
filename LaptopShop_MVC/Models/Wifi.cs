@@ -8,5 +8,8 @@ namespace LaptopShop_MVC.Models
     {
         public int wifiId { get; set; }
         public string description { get; set; }
+
+
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

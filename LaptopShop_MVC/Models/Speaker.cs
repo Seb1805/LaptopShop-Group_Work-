@@ -10,5 +10,8 @@ namespace LaptopShop_MVC.Models
         [Key]
         public int SpeakerId { get; set; }
         public string Description { get; set; }
+
+
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

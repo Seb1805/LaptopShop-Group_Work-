@@ -12,7 +12,7 @@ namespace LaptopShop.Repositories
         public IEnumerable<Product> GetProductByWebcam(bool webcam);
         public IEnumerable<Product> GetProductByMicrophone(bool mic);
         public IEnumerable<Product> GetProductByModelNumber(string modelNumber);
-        public IEnumerable<Product> SearchForProduct(string searchQuery);
+        //public IEnumerable<Product> SearchForProduct(string searchQuery);
         public IEnumerable<Product> GetProductByWeight(int weight);
     }
 }
