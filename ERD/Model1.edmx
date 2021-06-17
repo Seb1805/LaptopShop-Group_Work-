@@ -1,0 +1,1531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LaptopShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Street" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostalCode" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Batteries">
+          <Key>
+            <PropertyRef Name="BatteryId" />
+          </Key>
+          <Property Name="BatteryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChargerId" Type="int" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Bluetooth">
+          <Key>
+            <PropertyRef Name="BluetoothId" />
+          </Key>
+          <Property Name="BluetoothId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chargers">
+          <Key>
+            <PropertyRef Name="ChargerId" />
+          </Key>
+          <Property Name="ChargerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Voltage" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Current" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adaptor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ground" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Colors">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ColorName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CPUs">
+          <Key>
+            <PropertyRef Name="CPUId" />
+          </Key>
+          <Property Name="CPUId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Generation" Type="int" Nullable="false" />
+          <Property Name="ModelNumber" Type="varchar" MaxLength="50" />
+          <Property Name="GHz" Type="float" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GPUs">
+          <Key>
+            <PropertyRef Name="GPUId" />
+          </Key>
+          <Property Name="GPUId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VRAM" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Keyboards">
+          <Key>
+            <PropertyRef Name="KeyboardId" />
+          </Key>
+          <Property Name="KeyboardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numpad" Type="bit" Nullable="false" />
+          <Property Name="Language" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Layout" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Backlight" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orderlines">
+          <Key>
+            <PropertyRef Name="OrderlineId" />
+          </Key>
+          <Property Name="OrderlineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PortConnections">
+          <Key>
+            <PropertyRef Name="PortConnectionId" />
+          </Key>
+          <Property Name="PortConnectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PortId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ports">
+          <Key>
+            <PropertyRef Name="PortId" />
+          </Key>
+          <Property Name="PortId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostalCodes">
+          <Key>
+            <PropertyRef Name="PostalCode" />
+          </Key>
+          <Property Name="PostalCode" Type="int" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CPUId" Type="int" Nullable="false" />
+          <Property Name="GPUId" Type="int" Nullable="false" />
+          <Property Name="RAMId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="StorageId" Type="int" Nullable="false" />
+          <Property Name="BatteryId" Type="int" Nullable="false" />
+          <Property Name="ScreenId" Type="int" Nullable="false" />
+          <Property Name="Weight" Type="int" Nullable="false" />
+          <Property Name="FingerprintScanner" Type="bit" Nullable="false" />
+          <Property Name="SpeakerId" Type="int" Nullable="false" />
+          <Property Name="WiFiId" Type="int" Nullable="false" />
+          <Property Name="BluetoothId" Type="int" Nullable="false" />
+          <Property Name="KeyboardId" Type="int" Nullable="false" />
+          <Property Name="Microphone" Type="bit" Nullable="false" />
+          <Property Name="Webcam" Type="bit" Nullable="false" />
+          <Property Name="ModelNumber" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="RAMId" />
+          </Key>
+          <Property Name="RAMId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="Mhz" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Screens">
+          <Key>
+            <PropertyRef Name="ScreenId" />
+          </Key>
+          <Property Name="ScreenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Resolution" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Size" Type="float" Nullable="false" />
+          <Property Name="HDR" Type="bit" Nullable="false" />
+          <Property Name="Brightness" Type="int" Nullable="false" />
+          <Property Name="Touch" Type="bit" Nullable="false" />
+          <Property Name="AspectRatio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ScreenTechnology" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SyncType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RefreshRate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Speakers">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Storages">
+          <Key>
+            <PropertyRef Name="StorageId" />
+          </Key>
+          <Property Name="StorageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Brand" Type="int" Nullable="false" />
+          <Property Name="ReadSpeed" Type="int" />
+          <Property Name="WriteSpeed" Type="int" />
+          <Property Name="ModelNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WiFi">
+          <Key>
+            <PropertyRef Name="WiFiId" />
+          </Key>
+          <Property Name="WiFiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Address__Custome__73852659">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Address__PostalC__607251E5">
+          <End Role="PostalCodes" Type="Self.PostalCodes" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostalCodes">
+              <PropertyRef Name="PostalCode" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="PostalCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battery__Charger__2E1BDC42">
+          <End Role="Chargers" Type="Self.Chargers" Multiplicity="0..1" />
+          <End Role="Batteries" Type="Self.Batteries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chargers">
+              <PropertyRef Name="ChargerId" />
+            </Principal>
+            <Dependent Role="Batteries">
+              <PropertyRef Name="ChargerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CPU__BrandId__1DB06A4F">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="CPUs" Type="Self.CPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="CPUs">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GPU__BrandId__2180FB33">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="GPUs" Type="Self.GPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="GPUs">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__AddressId__3F466844">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__CustomerI__3E52440B">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orderline__Order__43D61337">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Orderlines" Type="Self.Orderlines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Orderlines">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orderline__Produ__42E1EEFE">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Orderlines" Type="Self.Orderlines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Orderlines">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PortConne__PortI__30C33EC3">
+          <End Role="Ports" Type="Self.Ports" Multiplicity="1" />
+          <End Role="PortConnections" Type="Self.PortConnections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ports">
+              <PropertyRef Name="PortId" />
+            </Principal>
+            <Dependent Role="PortConnections">
+              <PropertyRef Name="PortId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PortConne__Produ__40058253">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="PortConnections" Type="Self.PortConnections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PortConnections">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Battery__3A4CA8FD">
+          <End Role="Batteries" Type="Self.Batteries" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batteries">
+              <PropertyRef Name="BatteryId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="BatteryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Bluetoo__3E1D39E1">
+          <End Role="Bluetooth" Type="Self.Bluetooth" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bluetooth">
+              <PropertyRef Name="BluetoothId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="BluetoothId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__BrandId__3864608B">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ColorId__37703C52">
+          <End Role="Colors" Type="Self.Colors" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colors">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__CPUId__339FAB6E">
+          <End Role="CPUs" Type="Self.CPUs" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPUs">
+              <PropertyRef Name="CPUId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__GPUId__3493CFA7">
+          <End Role="GPUs" Type="Self.GPUs" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPUs">
+              <PropertyRef Name="GPUId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="GPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Keyboar__3F115E1A">
+          <End Role="Keyboards" Type="Self.Keyboards" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keyboards">
+              <PropertyRef Name="KeyboardId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="KeyboardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__RAMId__3587F3E0">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="RAMId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="RAMId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ScreenI__3B40CD36">
+          <End Role="Screens" Type="Self.Screens" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Screens">
+              <PropertyRef Name="ScreenId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ScreenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Speaker__3C34F16F">
+          <End Role="Speakers" Type="Self.Speakers" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speakers">
+              <PropertyRef Name="SpeakerId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SpeakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Storage__395884C4">
+          <End Role="Storages" Type="Self.Storages" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storages">
+              <PropertyRef Name="StorageId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="StorageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__WiFiId__3D2915A8">
+          <End Role="WiFi" Type="Self.WiFi" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WiFi">
+              <PropertyRef Name="WiFiId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="WiFiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAM__BrandId__17036CC0">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LaptopShopModelStoreContainer">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Batteries" EntityType="Self.Batteries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bluetooth" EntityType="Self.Bluetooth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chargers" EntityType="Self.Chargers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPUs" EntityType="Self.CPUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GPUs" EntityType="Self.GPUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Keyboards" EntityType="Self.Keyboards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orderlines" EntityType="Self.Orderlines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PortConnections" EntityType="Self.PortConnections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ports" EntityType="Self.Ports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostalCodes" EntityType="Self.PostalCodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Screens" EntityType="Self.Screens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speakers" EntityType="Self.Speakers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Storages" EntityType="Self.Storages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WiFi" EntityType="Self.WiFi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Address__Custome__73852659" Association="Self.FK__Address__Custome__73852659">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Address__PostalC__607251E5" Association="Self.FK__Address__PostalC__607251E5">
+            <End Role="PostalCodes" EntitySet="PostalCodes" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battery__Charger__2E1BDC42" Association="Self.FK__Battery__Charger__2E1BDC42">
+            <End Role="Chargers" EntitySet="Chargers" />
+            <End Role="Batteries" EntitySet="Batteries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CPU__BrandId__1DB06A4F" Association="Self.FK__CPU__BrandId__1DB06A4F">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="CPUs" EntitySet="CPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GPU__BrandId__2180FB33" Association="Self.FK__GPU__BrandId__2180FB33">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="GPUs" EntitySet="GPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__AddressId__3F466844" Association="Self.FK__Order__AddressId__3F466844">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__CustomerI__3E52440B" Association="Self.FK__Order__CustomerI__3E52440B">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orderline__Order__43D61337" Association="Self.FK__Orderline__Order__43D61337">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Orderlines" EntitySet="Orderlines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orderline__Produ__42E1EEFE" Association="Self.FK__Orderline__Produ__42E1EEFE">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orderlines" EntitySet="Orderlines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PortConne__PortI__30C33EC3" Association="Self.FK__PortConne__PortI__30C33EC3">
+            <End Role="Ports" EntitySet="Ports" />
+            <End Role="PortConnections" EntitySet="PortConnections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PortConne__Produ__40058253" Association="Self.FK__PortConne__Produ__40058253">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PortConnections" EntitySet="PortConnections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Battery__3A4CA8FD" Association="Self.FK__Product__Battery__3A4CA8FD">
+            <End Role="Batteries" EntitySet="Batteries" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Bluetoo__3E1D39E1" Association="Self.FK__Product__Bluetoo__3E1D39E1">
+            <End Role="Bluetooth" EntitySet="Bluetooth" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__BrandId__3864608B" Association="Self.FK__Product__BrandId__3864608B">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ColorId__37703C52" Association="Self.FK__Product__ColorId__37703C52">
+            <End Role="Colors" EntitySet="Colors" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__CPUId__339FAB6E" Association="Self.FK__Product__CPUId__339FAB6E">
+            <End Role="CPUs" EntitySet="CPUs" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__GPUId__3493CFA7" Association="Self.FK__Product__GPUId__3493CFA7">
+            <End Role="GPUs" EntitySet="GPUs" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Keyboar__3F115E1A" Association="Self.FK__Product__Keyboar__3F115E1A">
+            <End Role="Keyboards" EntitySet="Keyboards" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__RAMId__3587F3E0" Association="Self.FK__Product__RAMId__3587F3E0">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ScreenI__3B40CD36" Association="Self.FK__Product__ScreenI__3B40CD36">
+            <End Role="Screens" EntitySet="Screens" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Speaker__3C34F16F" Association="Self.FK__Product__Speaker__3C34F16F">
+            <End Role="Speakers" EntitySet="Speakers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Storage__395884C4" Association="Self.FK__Product__Storage__395884C4">
+            <End Role="Storages" EntitySet="Storages" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__WiFiId__3D2915A8" Association="Self.FK__Product__WiFiId__3D2915A8">
+            <End Role="WiFi" EntitySet="WiFi" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAM__BrandId__17036CC0" Association="Self.FK__RAM__BrandId__17036CC0">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="RAM" EntitySet="RAM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LaptopShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PostalCode" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Address__Custome__73852659" FromRole="Addresses" ToRole="Customers" />
+          <NavigationProperty Name="PostalCodes" Relationship="Self.FK__Address__PostalC__607251E5" FromRole="Addresses" ToRole="PostalCodes" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__AddressId__3F466844" FromRole="Addresses" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Batteries">
+          <Key>
+            <PropertyRef Name="BatteryId" />
+          </Key>
+          <Property Name="BatteryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChargerId" Type="Int32" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Chargers" Relationship="Self.FK__Battery__Charger__2E1BDC42" FromRole="Batteries" ToRole="Chargers" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__Battery__3A4CA8FD" FromRole="Batteries" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Bluetooth">
+          <Key>
+            <PropertyRef Name="BluetoothId" />
+          </Key>
+          <Property Name="BluetoothId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__Bluetoo__3E1D39E1" FromRole="Bluetooth" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CPUs" Relationship="Self.FK__CPU__BrandId__1DB06A4F" FromRole="Brands" ToRole="CPUs" />
+          <NavigationProperty Name="GPUs" Relationship="Self.FK__GPU__BrandId__2180FB33" FromRole="Brands" ToRole="GPUs" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__BrandId__3864608B" FromRole="Brands" ToRole="Products" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK__RAM__BrandId__17036CC0" FromRole="Brands" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="Chargers">
+          <Key>
+            <PropertyRef Name="ChargerId" />
+          </Key>
+          <Property Name="ChargerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Voltage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Current" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adaptor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ground" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Batteries" Relationship="Self.FK__Battery__Charger__2E1BDC42" FromRole="Chargers" ToRole="Batteries" />
+        </EntityType>
+        <EntityType Name="Colors">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__ColorId__37703C52" FromRole="Colors" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="CPUs">
+          <Key>
+            <PropertyRef Name="CPUId" />
+          </Key>
+          <Property Name="CPUId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Generation" Type="Int32" Nullable="false" />
+          <Property Name="ModelNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GHz" Type="Double" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brands" Relationship="Self.FK__CPU__BrandId__1DB06A4F" FromRole="CPUs" ToRole="Brands" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__CPUId__339FAB6E" FromRole="CPUs" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK__Address__Custome__73852659" FromRole="Customers" ToRole="Addresses" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__CustomerI__3E52440B" FromRole="Customers" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="GPUs">
+          <Key>
+            <PropertyRef Name="GPUId" />
+          </Key>
+          <Property Name="GPUId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VRAM" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brands" Relationship="Self.FK__GPU__BrandId__2180FB33" FromRole="GPUs" ToRole="Brands" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__GPUId__3493CFA7" FromRole="GPUs" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Keyboards">
+          <Key>
+            <PropertyRef Name="KeyboardId" />
+          </Key>
+          <Property Name="KeyboardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numpad" Type="Boolean" Nullable="false" />
+          <Property Name="Language" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Layout" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Backlight" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__Keyboar__3F115E1A" FromRole="Keyboards" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Orderlines">
+          <Key>
+            <PropertyRef Name="OrderlineId" />
+          </Key>
+          <Property Name="OrderlineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orderline__Order__43D61337" FromRole="Orderlines" ToRole="Orders" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Orderline__Produ__42E1EEFE" FromRole="Orderlines" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK__Order__AddressId__3F466844" FromRole="Orders" ToRole="Addresses" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Order__CustomerI__3E52440B" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="Orderlines" Relationship="Self.FK__Orderline__Order__43D61337" FromRole="Orders" ToRole="Orderlines" />
+        </EntityType>
+        <EntityType Name="PortConnections">
+          <Key>
+            <PropertyRef Name="PortConnectionId" />
+          </Key>
+          <Property Name="PortConnectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ports" Relationship="Self.FK__PortConne__PortI__30C33EC3" FromRole="PortConnections" ToRole="Ports" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__PortConne__Produ__40058253" FromRole="PortConnections" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Ports">
+          <Key>
+            <PropertyRef Name="PortId" />
+          </Key>
+          <Property Name="PortId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PortConnections" Relationship="Self.FK__PortConne__PortI__30C33EC3" FromRole="Ports" ToRole="PortConnections" />
+        </EntityType>
+        <EntityType Name="PostalCodes">
+          <Key>
+            <PropertyRef Name="PostalCode" />
+          </Key>
+          <Property Name="PostalCode" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK__Address__PostalC__607251E5" FromRole="PostalCodes" ToRole="Addresses" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CPUId" Type="Int32" Nullable="false" />
+          <Property Name="GPUId" Type="Int32" Nullable="false" />
+          <Property Name="RAMId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="StorageId" Type="Int32" Nullable="false" />
+          <Property Name="BatteryId" Type="Int32" Nullable="false" />
+          <Property Name="ScreenId" Type="Int32" Nullable="false" />
+          <Property Name="Weight" Type="Int32" Nullable="false" />
+          <Property Name="FingerprintScanner" Type="Boolean" Nullable="false" />
+          <Property Name="SpeakerId" Type="Int32" Nullable="false" />
+          <Property Name="WiFiId" Type="Int32" Nullable="false" />
+          <Property Name="BluetoothId" Type="Int32" Nullable="false" />
+          <Property Name="KeyboardId" Type="Int32" Nullable="false" />
+          <Property Name="Microphone" Type="Boolean" Nullable="false" />
+          <Property Name="Webcam" Type="Boolean" Nullable="false" />
+          <Property Name="ModelNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Batteries" Relationship="Self.FK__Product__Battery__3A4CA8FD" FromRole="Products" ToRole="Batteries" />
+          <NavigationProperty Name="Bluetooth" Relationship="Self.FK__Product__Bluetoo__3E1D39E1" FromRole="Products" ToRole="Bluetooth" />
+          <NavigationProperty Name="Brands" Relationship="Self.FK__Product__BrandId__3864608B" FromRole="Products" ToRole="Brands" />
+          <NavigationProperty Name="Colors" Relationship="Self.FK__Product__ColorId__37703C52" FromRole="Products" ToRole="Colors" />
+          <NavigationProperty Name="CPUs" Relationship="Self.FK__Product__CPUId__339FAB6E" FromRole="Products" ToRole="CPUs" />
+          <NavigationProperty Name="GPUs" Relationship="Self.FK__Product__GPUId__3493CFA7" FromRole="Products" ToRole="GPUs" />
+          <NavigationProperty Name="Keyboards" Relationship="Self.FK__Product__Keyboar__3F115E1A" FromRole="Products" ToRole="Keyboards" />
+          <NavigationProperty Name="Orderlines" Relationship="Self.FK__Orderline__Produ__42E1EEFE" FromRole="Products" ToRole="Orderlines" />
+          <NavigationProperty Name="PortConnections" Relationship="Self.FK__PortConne__Produ__40058253" FromRole="Products" ToRole="PortConnections" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK__Product__RAMId__3587F3E0" FromRole="Products" ToRole="RAM" />
+          <NavigationProperty Name="Screens" Relationship="Self.FK__Product__ScreenI__3B40CD36" FromRole="Products" ToRole="Screens" />
+          <NavigationProperty Name="Speakers" Relationship="Self.FK__Product__Speaker__3C34F16F" FromRole="Products" ToRole="Speakers" />
+          <NavigationProperty Name="Storages" Relationship="Self.FK__Product__Storage__395884C4" FromRole="Products" ToRole="Storages" />
+          <NavigationProperty Name="WiFi" Relationship="Self.FK__Product__WiFiId__3D2915A8" FromRole="Products" ToRole="WiFi" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="RAMId" />
+          </Key>
+          <Property Name="RAMId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="Mhz" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brands" Relationship="Self.FK__RAM__BrandId__17036CC0" FromRole="RAM" ToRole="Brands" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__RAMId__3587F3E0" FromRole="RAM" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Screens">
+          <Key>
+            <PropertyRef Name="ScreenId" />
+          </Key>
+          <Property Name="ScreenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Resolution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Size" Type="Double" Nullable="false" />
+          <Property Name="HDR" Type="Boolean" Nullable="false" />
+          <Property Name="Brightness" Type="Int32" Nullable="false" />
+          <Property Name="Touch" Type="Boolean" Nullable="false" />
+          <Property Name="AspectRatio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ScreenTechnology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SyncType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RefreshRate" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__ScreenI__3B40CD36" FromRole="Screens" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Speakers">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__Speaker__3C34F16F" FromRole="Speakers" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Storages">
+          <Key>
+            <PropertyRef Name="StorageId" />
+          </Key>
+          <Property Name="StorageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Brand" Type="Int32" Nullable="false" />
+          <Property Name="ReadSpeed" Type="Int32" />
+          <Property Name="WriteSpeed" Type="Int32" />
+          <Property Name="ModelNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__Storage__395884C4" FromRole="Storages" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="WiFi">
+          <Key>
+            <PropertyRef Name="WiFiId" />
+          </Key>
+          <Property Name="WiFiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__WiFiId__3D2915A8" FromRole="WiFi" ToRole="Products" />
+        </EntityType>
+        <Association Name="FK__Address__Custome__73852659">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Address__PostalC__607251E5">
+          <End Role="PostalCodes" Type="Self.PostalCodes" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostalCodes">
+              <PropertyRef Name="PostalCode" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="PostalCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__AddressId__3F466844">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battery__Charger__2E1BDC42">
+          <End Role="Chargers" Type="Self.Chargers" Multiplicity="0..1" />
+          <End Role="Batteries" Type="Self.Batteries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chargers">
+              <PropertyRef Name="ChargerId" />
+            </Principal>
+            <Dependent Role="Batteries">
+              <PropertyRef Name="ChargerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Battery__3A4CA8FD">
+          <End Role="Batteries" Type="Self.Batteries" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batteries">
+              <PropertyRef Name="BatteryId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="BatteryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Bluetoo__3E1D39E1">
+          <End Role="Bluetooth" Type="Self.Bluetooth" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bluetooth">
+              <PropertyRef Name="BluetoothId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="BluetoothId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CPU__BrandId__1DB06A4F">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="CPUs" Type="Self.CPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="CPUs">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GPU__BrandId__2180FB33">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="GPUs" Type="Self.GPUs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="GPUs">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__BrandId__3864608B">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAM__BrandId__17036CC0">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
+          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ColorId__37703C52">
+          <End Role="Colors" Type="Self.Colors" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colors">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__CPUId__339FAB6E">
+          <End Role="CPUs" Type="Self.CPUs" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPUs">
+              <PropertyRef Name="CPUId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__CustomerI__3E52440B">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__GPUId__3493CFA7">
+          <End Role="GPUs" Type="Self.GPUs" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPUs">
+              <PropertyRef Name="GPUId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="GPUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Keyboar__3F115E1A">
+          <End Role="Keyboards" Type="Self.Keyboards" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keyboards">
+              <PropertyRef Name="KeyboardId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="KeyboardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orderline__Order__43D61337">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Orderlines" Type="Self.Orderlines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Orderlines">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orderline__Produ__42E1EEFE">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Orderlines" Type="Self.Orderlines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Orderlines">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PortConne__PortI__30C33EC3">
+          <End Role="Ports" Type="Self.Ports" Multiplicity="1" />
+          <End Role="PortConnections" Type="Self.PortConnections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ports">
+              <PropertyRef Name="PortId" />
+            </Principal>
+            <Dependent Role="PortConnections">
+              <PropertyRef Name="PortId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PortConne__Produ__40058253">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="PortConnections" Type="Self.PortConnections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PortConnections">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__RAMId__3587F3E0">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="RAMId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="RAMId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ScreenI__3B40CD36">
+          <End Role="Screens" Type="Self.Screens" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Screens">
+              <PropertyRef Name="ScreenId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ScreenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Speaker__3C34F16F">
+          <End Role="Speakers" Type="Self.Speakers" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speakers">
+              <PropertyRef Name="SpeakerId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SpeakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Storage__395884C4">
+          <End Role="Storages" Type="Self.Storages" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storages">
+              <PropertyRef Name="StorageId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="StorageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__WiFiId__3D2915A8">
+          <End Role="WiFi" Type="Self.WiFi" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WiFi">
+              <PropertyRef Name="WiFiId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="WiFiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LaptopShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" />
+          <EntitySet Name="Batteries" EntityType="Self.Batteries" />
+          <EntitySet Name="Bluetooth" EntityType="Self.Bluetooth" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" />
+          <EntitySet Name="Chargers" EntityType="Self.Chargers" />
+          <EntitySet Name="Colors" EntityType="Self.Colors" />
+          <EntitySet Name="CPUs" EntityType="Self.CPUs" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="GPUs" EntityType="Self.GPUs" />
+          <EntitySet Name="Keyboards" EntityType="Self.Keyboards" />
+          <EntitySet Name="Orderlines" EntityType="Self.Orderlines" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="PortConnections" EntityType="Self.PortConnections" />
+          <EntitySet Name="Ports" EntityType="Self.Ports" />
+          <EntitySet Name="PostalCodes" EntityType="Self.PostalCodes" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" />
+          <EntitySet Name="Screens" EntityType="Self.Screens" />
+          <EntitySet Name="Speakers" EntityType="Self.Speakers" />
+          <EntitySet Name="Storages" EntityType="Self.Storages" />
+          <EntitySet Name="WiFi" EntityType="Self.WiFi" />
+          <AssociationSet Name="FK__Address__Custome__73852659" Association="Self.FK__Address__Custome__73852659">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Address__PostalC__607251E5" Association="Self.FK__Address__PostalC__607251E5">
+            <End Role="PostalCodes" EntitySet="PostalCodes" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__AddressId__3F466844" Association="Self.FK__Order__AddressId__3F466844">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battery__Charger__2E1BDC42" Association="Self.FK__Battery__Charger__2E1BDC42">
+            <End Role="Chargers" EntitySet="Chargers" />
+            <End Role="Batteries" EntitySet="Batteries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Battery__3A4CA8FD" Association="Self.FK__Product__Battery__3A4CA8FD">
+            <End Role="Batteries" EntitySet="Batteries" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Bluetoo__3E1D39E1" Association="Self.FK__Product__Bluetoo__3E1D39E1">
+            <End Role="Bluetooth" EntitySet="Bluetooth" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CPU__BrandId__1DB06A4F" Association="Self.FK__CPU__BrandId__1DB06A4F">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="CPUs" EntitySet="CPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GPU__BrandId__2180FB33" Association="Self.FK__GPU__BrandId__2180FB33">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="GPUs" EntitySet="GPUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__BrandId__3864608B" Association="Self.FK__Product__BrandId__3864608B">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAM__BrandId__17036CC0" Association="Self.FK__RAM__BrandId__17036CC0">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="RAM" EntitySet="RAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ColorId__37703C52" Association="Self.FK__Product__ColorId__37703C52">
+            <End Role="Colors" EntitySet="Colors" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__CPUId__339FAB6E" Association="Self.FK__Product__CPUId__339FAB6E">
+            <End Role="CPUs" EntitySet="CPUs" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__CustomerI__3E52440B" Association="Self.FK__Order__CustomerI__3E52440B">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__GPUId__3493CFA7" Association="Self.FK__Product__GPUId__3493CFA7">
+            <End Role="GPUs" EntitySet="GPUs" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Keyboar__3F115E1A" Association="Self.FK__Product__Keyboar__3F115E1A">
+            <End Role="Keyboards" EntitySet="Keyboards" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orderline__Order__43D61337" Association="Self.FK__Orderline__Order__43D61337">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Orderlines" EntitySet="Orderlines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orderline__Produ__42E1EEFE" Association="Self.FK__Orderline__Produ__42E1EEFE">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orderlines" EntitySet="Orderlines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PortConne__PortI__30C33EC3" Association="Self.FK__PortConne__PortI__30C33EC3">
+            <End Role="Ports" EntitySet="Ports" />
+            <End Role="PortConnections" EntitySet="PortConnections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PortConne__Produ__40058253" Association="Self.FK__PortConne__Produ__40058253">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PortConnections" EntitySet="PortConnections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__RAMId__3587F3E0" Association="Self.FK__Product__RAMId__3587F3E0">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ScreenI__3B40CD36" Association="Self.FK__Product__ScreenI__3B40CD36">
+            <End Role="Screens" EntitySet="Screens" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Speaker__3C34F16F" Association="Self.FK__Product__Speaker__3C34F16F">
+            <End Role="Speakers" EntitySet="Speakers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Storage__395884C4" Association="Self.FK__Product__Storage__395884C4">
+            <End Role="Storages" EntitySet="Storages" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__WiFiId__3D2915A8" Association="Self.FK__Product__WiFiId__3D2915A8">
+            <End Role="WiFi" EntitySet="WiFi" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LaptopShopModelStoreContainer" CdmEntityContainer="LaptopShopEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="LaptopShopModel.Addresses">
+              <MappingFragment StoreEntitySet="Addresses">
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Batteries">
+            <EntityTypeMapping TypeName="LaptopShopModel.Batteries">
+              <MappingFragment StoreEntitySet="Batteries">
+                <ScalarProperty Name="BatteryId" ColumnName="BatteryId" />
+                <ScalarProperty Name="ChargerId" ColumnName="ChargerId" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bluetooth">
+            <EntityTypeMapping TypeName="LaptopShopModel.Bluetooth">
+              <MappingFragment StoreEntitySet="Bluetooth">
+                <ScalarProperty Name="BluetoothId" ColumnName="BluetoothId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="LaptopShopModel.Brands">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chargers">
+            <EntityTypeMapping TypeName="LaptopShopModel.Chargers">
+              <MappingFragment StoreEntitySet="Chargers">
+                <ScalarProperty Name="ChargerId" ColumnName="ChargerId" />
+                <ScalarProperty Name="Voltage" ColumnName="Voltage" />
+                <ScalarProperty Name="Current" ColumnName="Current" />
+                <ScalarProperty Name="Adaptor" ColumnName="Adaptor" />
+                <ScalarProperty Name="Ground" ColumnName="Ground" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colors">
+            <EntityTypeMapping TypeName="LaptopShopModel.Colors">
+              <MappingFragment StoreEntitySet="Colors">
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPUs">
+            <EntityTypeMapping TypeName="LaptopShopModel.CPUs">
+              <MappingFragment StoreEntitySet="CPUs">
+                <ScalarProperty Name="CPUId" ColumnName="CPUId" />
+                <ScalarProperty Name="Generation" ColumnName="Generation" />
+                <ScalarProperty Name="ModelNumber" ColumnName="ModelNumber" />
+                <ScalarProperty Name="GHz" ColumnName="GHz" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="LaptopShopModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GPUs">
+            <EntityTypeMapping TypeName="LaptopShopModel.GPUs">
+              <MappingFragment StoreEntitySet="GPUs">
+                <ScalarProperty Name="GPUId" ColumnName="GPUId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="VRAM" ColumnName="VRAM" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Keyboards">
+            <EntityTypeMapping TypeName="LaptopShopModel.Keyboards">
+              <MappingFragment StoreEntitySet="Keyboards">
+                <ScalarProperty Name="KeyboardId" ColumnName="KeyboardId" />
+                <ScalarProperty Name="Numpad" ColumnName="Numpad" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Layout" ColumnName="Layout" />
+                <ScalarProperty Name="Backlight" ColumnName="Backlight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orderlines">
+            <EntityTypeMapping TypeName="LaptopShopModel.Orderlines">
+              <MappingFragment StoreEntitySet="Orderlines">
+                <ScalarProperty Name="OrderlineId" ColumnName="OrderlineId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="LaptopShopModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PortConnections">
+            <EntityTypeMapping TypeName="LaptopShopModel.PortConnections">
+              <MappingFragment StoreEntitySet="PortConnections">
+                <ScalarProperty Name="PortConnectionId" ColumnName="PortConnectionId" />
+                <ScalarProperty Name="PortId" ColumnName="PortId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ports">
+            <EntityTypeMapping TypeName="LaptopShopModel.Ports">
+              <MappingFragment StoreEntitySet="Ports">
+                <ScalarProperty Name="PortId" ColumnName="PortId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostalCodes">
+            <EntityTypeMapping TypeName="LaptopShopModel.PostalCodes">
+              <MappingFragment StoreEntitySet="PostalCodes">
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="LaptopShopModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CPUId" ColumnName="CPUId" />
+                <ScalarProperty Name="GPUId" ColumnName="GPUId" />
+                <ScalarProperty Name="RAMId" ColumnName="RAMId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="StorageId" ColumnName="StorageId" />
+                <ScalarProperty Name="BatteryId" ColumnName="BatteryId" />
+                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="FingerprintScanner" ColumnName="FingerprintScanner" />
+                <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+                <ScalarProperty Name="WiFiId" ColumnName="WiFiId" />
+                <ScalarProperty Name="BluetoothId" ColumnName="BluetoothId" />
+                <ScalarProperty Name="KeyboardId" ColumnName="KeyboardId" />
+                <ScalarProperty Name="Microphone" ColumnName="Microphone" />
+                <ScalarProperty Name="Webcam" ColumnName="Webcam" />
+                <ScalarProperty Name="ModelNumber" ColumnName="ModelNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM">
+            <EntityTypeMapping TypeName="LaptopShopModel.RAM">
+              <MappingFragment StoreEntitySet="RAM">
+                <ScalarProperty Name="RAMId" ColumnName="RAMId" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Mhz" ColumnName="Mhz" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Screens">
+            <EntityTypeMapping TypeName="LaptopShopModel.Screens">
+              <MappingFragment StoreEntitySet="Screens">
+                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="HDR" ColumnName="HDR" />
+                <ScalarProperty Name="Brightness" ColumnName="Brightness" />
+                <ScalarProperty Name="Touch" ColumnName="Touch" />
+                <ScalarProperty Name="AspectRatio" ColumnName="AspectRatio" />
+                <ScalarProperty Name="ScreenTechnology" ColumnName="ScreenTechnology" />
+                <ScalarProperty Name="SyncType" ColumnName="SyncType" />
+                <ScalarProperty Name="RefreshRate" ColumnName="RefreshRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Speakers">
+            <EntityTypeMapping TypeName="LaptopShopModel.Speakers">
+              <MappingFragment StoreEntitySet="Speakers">
+                <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Storages">
+            <EntityTypeMapping TypeName="LaptopShopModel.Storages">
+              <MappingFragment StoreEntitySet="Storages">
+                <ScalarProperty Name="StorageId" ColumnName="StorageId" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="ReadSpeed" ColumnName="ReadSpeed" />
+                <ScalarProperty Name="WriteSpeed" ColumnName="WriteSpeed" />
+                <ScalarProperty Name="ModelNumber" ColumnName="ModelNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WiFi">
+            <EntityTypeMapping TypeName="LaptopShopModel.WiFi">
+              <MappingFragment StoreEntitySet="WiFi">
+                <ScalarProperty Name="WiFiId" ColumnName="WiFiId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

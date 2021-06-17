@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b0d443872cb248a3ab1f60d6167278fe" Name="Diagram1">
+        <EntityTypeShape EntityType="LaptopShopModel.Addresses" Width="1.5" PointX="3" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Batteries" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Bluetooth" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Brands" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Chargers" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Colors" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.CPUs" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Customers" Width="1.5" PointX="0.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.GPUs" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Keyboards" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Orderlines" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Orders" Width="1.5" PointX="5.25" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.PortConnections" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Ports" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.PostalCodes" Width="1.5" PointX="0.75" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Products" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.RAM" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Screens" Width="1.5" PointX="3" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Speakers" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.Storages" Width="1.5" PointX="3" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopShopModel.WiFi" Width="1.5" PointX="3" PointY="33.125" IsExpanded="true" />
+        <AssociationConnector Association="LaptopShopModel.FK__Address__Custome__73852659" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Address__PostalC__607251E5" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Order__AddressId__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Battery__Charger__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__Battery__3A4CA8FD" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__Bluetoo__3E1D39E1" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__CPU__BrandId__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__GPU__BrandId__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__BrandId__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__RAM__BrandId__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__ColorId__37703C52" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__CPUId__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Order__CustomerI__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__GPUId__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__Keyboar__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Orderline__Order__43D61337" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Orderline__Produ__42E1EEFE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__PortConne__PortI__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__PortConne__Produ__40058253" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__RAMId__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__ScreenI__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__Speaker__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__Storage__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopShopModel.FK__Product__WiFiId__3D2915A8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
