@@ -18,17 +18,26 @@ namespace LaptopShop.Repositories
 
         public Order GetOrderbyId(int id)
         {
-            return _context.Order.FirstOrDefault(o => o.OrderId == id);
+            return _context.Orders.FirstOrDefault(o => o.OrderId == id);
         }
 
         public IEnumerable<Order> GetOrdersbyAddressId(int addressId)
         {
-            return _context.Order.Where(o => o.AddressId == addressId).ToList();
+            return _context.Orders.Where(o => o.AddressId == addressId).ToList();
         }
 
         public IEnumerable<Order> GetOrdersbyCustomerId(int customerId)
         {
-            return _context.Order.Where(o => o.CustomerId == customerId).ToList();
+            return _context.Orders.Where(o => o.CustomerId == customerId).ToList();
         }
+
+        public int AddOrder(Order o)
+        {
+            _context.Orders.Add(o);
+            _context.SaveChanges();
+            return o.OrderId;
+        }
+
+
     }
 }

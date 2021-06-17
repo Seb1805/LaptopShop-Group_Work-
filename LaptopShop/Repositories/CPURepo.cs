@@ -18,37 +18,37 @@ namespace LaptopShop.Repositories
 
         public CPU GetCPUById(int id)
         {
-            return _context.CPU.FirstOrDefault(c => c.CPUId == id);
+            return _context.CPUs.FirstOrDefault(c => c.CPUId == id);
         }
 
         public IEnumerable<CPU> GetCPUs()
         {
-            return _context.CPU.ToList();
+            return _context.CPUs.ToList();
         }
 
         public IEnumerable<CPU> GetCPUsByBrandId(int brandId)
         {
-            return _context.CPU.Where(c => c.BrandId == brandId).ToList();
+            return _context.CPUs.Where(c => c.BrandId == brandId).ToList();
         }
 
         public IEnumerable<CPU> GetCPUsByGeneration(int generation)
         {
-            return _context.CPU.Where(c => c.Generation == generation).ToList();
+            return _context.CPUs.Where(c => c.Generation == generation).ToList();
         }
 
         // TODO: range
         public IEnumerable<CPU> GetCPUsByGHzRange(float ghzMin, float ghzMax)
         {
-            return _context.CPU.Where(c => c.Ghz > ghzMin && c.Ghz < ghzMax).ToList();
+            return _context.CPUs.Where(c => c.Ghz > ghzMin && c.Ghz < ghzMax).ToList();
         }
         public IEnumerable<CPU> GetCPUsByGHz(float ghz)
         {
-            return _context.CPU.Where(c => c.Ghz < ghz).ToList();
+            return _context.CPUs.Where(c => c.Ghz < ghz).ToList();
         }
 
         public IEnumerable<CPU> GetCPUsByModelNumber(string modelNumber)
         {
-            return _context.CPU.Where(c => c.ModelNumber.Contains(modelNumber)).ToList();
+            return _context.CPUs.Where(c => c.ModelNumber.Contains(modelNumber)).ToList();
         }
     }
 }

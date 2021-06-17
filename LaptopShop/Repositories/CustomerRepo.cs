@@ -37,7 +37,7 @@ namespace LaptopShop.Repositories
         }
         public Customer GetCustomerByEmail(string email)
         {
-            return _context.Customer.FirstOrDefault(c => c.EmailAddress == email);
+            return _context.Customers.FirstOrDefault(c => c.EmailAddress == email);
         }
     }
 }
