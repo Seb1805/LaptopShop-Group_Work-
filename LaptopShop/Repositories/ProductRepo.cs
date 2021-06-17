@@ -4,6 +4,7 @@ using System.Text;
 using LaptopShop.Data;
 using LaptopShop.Model;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace LaptopShop.Repositories
 {
@@ -35,8 +36,33 @@ namespace LaptopShop.Repositories
             return _context.Product.Where(p => p.ModelNumber.Contains(modelNumber));
         }
 
-        public IEnumerable<Product> SearchForProduct(string searchQuery)
+        public IEnumerable<Product> SearchForProduct(List<int> CPUs)
         {
+
+            string query = "Select * From Product WHERE ";
+
+            for(int i = 0; i < CPUs.Count; i++)
+            {
+                query += $"CPUId = {CPUs.ElementAt(i)}";
+                if (i != CPUs.Count - 1)
+                    query += "OR ";
+            }
+
+            return _context.Product.FromSqlRaw(query).ToList();
+
+            //List<Product> list = _context.Product.ToList();
+            //foreach(var prod in list)
+            //{
+            //    foreach(var c in CPUs) 
+            //    {
+            //        if (prod.CPUId != c)
+            //        {
+            //            list.Remove(prod);
+            //        }
+            //    }
+            //}
+            //items.ToList().ForEach(i => i.DoStuff());
+            //return _context.Product
             throw new NotImplementedException();
         }
 
