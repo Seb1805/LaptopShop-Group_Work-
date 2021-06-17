@@ -9,5 +9,8 @@ namespace LaptopShop_MVC.Models
         public int BrandId { get; set; }
         public string BrandName { get; set; }
         public virtual IEnumerable<Product> Products { get; set; }
+        public virtual IEnumerable<RAM> RAM { get; set; }
+        public virtual IEnumerable<CPU> CPUs { get; set; }
+        public virtual IEnumerable<GPU> GPUs { get; set; }
     }
 }

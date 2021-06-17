@@ -11,5 +11,8 @@ namespace LaptopShop_MVC.Models
         public string FirstName { get; set; }
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
+
+        public virtual IEnumerable<Address> Addresses { get; set; }
+        public virtual IEnumerable<Order> Orders { get; set; }
     }
 }

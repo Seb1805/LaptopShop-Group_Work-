@@ -14,5 +14,7 @@ namespace LaptopShop_MVC.Models
         public virtual Customer Customer { get; set; }
         [ForeignKey("PostalCode")]
         public virtual PostalCode postalCode { get; set; }
+        public virtual IEnumerable<Order> Orders { get; set; }
+
     }
 }

@@ -13,5 +13,7 @@ namespace LaptopShop_MVC.Models
         public string Current { get; set; }
         public string Adaptor { get; set; }
         public bool Ground { get; set; }
+
+        public virtual IEnumerable<Battery> Batteries { get; set; }
     }
 }

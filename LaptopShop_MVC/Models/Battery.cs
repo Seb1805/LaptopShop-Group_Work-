@@ -13,5 +13,6 @@ namespace LaptopShop_MVC.Models
         public int Capacity { get; set; }
         public string Type { get; set; }
         public virtual IEnumerable<Product> Products { get; set; }
+        public virtual IEnumerable<Charger> Chargers { get; set; }
     }
 }
