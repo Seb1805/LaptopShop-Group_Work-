@@ -17,32 +17,32 @@ namespace LaptopShop.Repositories
         }
         public IEnumerable<Battery> GetAllBatteries()
         {
-            return _context.Batteries.ToList();
+            return _context.Battery.ToList();
         }
 
         public IEnumerable<Battery> GetBatteriesByCapacity(int capacity)
         {
-            return _context.Batteries.Where(b => b.Capacity == capacity).ToList();
+            return _context.Battery.Where(b => b.Capacity == capacity).ToList();
         }
 
         public IEnumerable<Battery> GetBatteriesByChargerId(int id)
         {
-            return _context.Batteries.Where(b => b.ChargerId == id).ToList();
+            return _context.Battery.Where(b => b.ChargerId == id).ToList();
         }
 
         public IEnumerable<Battery> GetBatteriesByType(string type)
         {
-            return _context.Batteries.Where(b => b.Type == type).ToList();
+            return _context.Battery.Where(b => b.Type == type).ToList();
         }
 
         public Battery GetBatteryByChargerId(int id)
         {
-            return _context.Batteries.First(b => b.ChargerId == id);
+            return _context.Battery.First(b => b.ChargerId == id);
         }
 
         public Battery GetBatteryById(int id)
         {
-            return _context.Batteries.First(b => b.BatteryId == id);
+            return _context.Battery.First(b => b.BatteryId == id);
         }
     }
 }
