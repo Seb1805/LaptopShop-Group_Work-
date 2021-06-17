@@ -8,5 +8,6 @@ namespace LaptopShop_MVC.Models
     {
         public int BluetoothId { get; set; }
         public string Description { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

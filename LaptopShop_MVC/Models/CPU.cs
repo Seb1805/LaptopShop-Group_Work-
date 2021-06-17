@@ -11,5 +11,6 @@ namespace LaptopShop_MVC.Models
         public string ModelNumber{ get; set; }
         public float Ghz { get; set; }
         public int BrandId { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

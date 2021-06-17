@@ -10,7 +10,8 @@ namespace LaptopShop_MVC.Models
         public bool Numpad { get; set; }
         public bool Backlight { get; set; } 
         public string Language { get; set; } 
-        public string Layout { get; set; } 
+        public string Layout { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
 
     }
 }
