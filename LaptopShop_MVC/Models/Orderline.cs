@@ -10,6 +10,9 @@ namespace LaptopShop_MVC.Models
         public int OrderId { get; set; }
         public int ProductId { get; set; }
 
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
+
         public override string ToString()
         {
             return $"OrderLineId: {OrderLineId}\nOrderId: {OrderId}\nProductId: {ProductId}";
