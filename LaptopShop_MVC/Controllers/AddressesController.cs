@@ -22,7 +22,7 @@ namespace LaptopShop_MVC.Controllers
         // GET: Addresses
         public async Task<IActionResult> Index()
         {
-            var laptopContext = _context.Addresses.Include(a => a.Customer);
+            var laptopContext = _context.Addresses.Include(a => a.Customer).Include(b => b.postalCode);
             return View(await laptopContext.ToListAsync());
         }
 

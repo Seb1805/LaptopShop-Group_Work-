@@ -27,6 +27,18 @@ namespace LaptopShop_MVC.Models
         public int Price { get; set; }
 
         public virtual CPU CPU { get; set; }
+        public virtual GPU GPU { get; set; }
+        public virtual RAM RAM { get; set; }
+        public virtual Color Color { get; set; }
+        public virtual Brand Brand { get; set; }
+        public virtual Storage Storage { get; set; }
+        public virtual Battery Battery { get; set; }
+        public virtual Screen Screen { get; set; }
+        public virtual Speaker Speaker { get; set; }
+        public virtual Wifi Wifi { get; set; }
+        public virtual Bluetooth Bluetooth { get; set; }
+        public virtual Keyboard Keyboard { get; set; }
+
 
         public override string ToString()
         {
