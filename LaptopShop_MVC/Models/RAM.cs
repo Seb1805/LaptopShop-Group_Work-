@@ -12,5 +12,6 @@ namespace LaptopShop_MVC.Models
         public int BrandId { get; set; }
 
         public virtual IEnumerable<Product> Products { get; set; }
+        public virtual Brand Brand { get; set; }
     }
 }

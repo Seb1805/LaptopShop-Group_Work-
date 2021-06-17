@@ -9,14 +9,10 @@ namespace LaptopShop_MVC.Data
     public class LaptopContext : DbContext
     {
 
-
         public LaptopContext(DbContextOptions<LaptopContext> options) : base(options)
         {
 
         }
-
-
-
 
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Battery> Batteries { get; set; }
