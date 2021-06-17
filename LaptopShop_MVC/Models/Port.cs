@@ -11,5 +11,7 @@ namespace LaptopShop_MVC.Models
         public int PortId { get; set; }
         public string Type { get; set; }
         public string Model { get; set; }
+
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

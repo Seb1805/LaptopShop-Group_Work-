@@ -11,5 +11,7 @@ namespace LaptopShop_MVC.Models
         public int Amount { get; set; }
         public int ProductId { get; set; }
 
+
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

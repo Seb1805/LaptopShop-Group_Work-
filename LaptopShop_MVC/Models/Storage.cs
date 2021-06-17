@@ -14,5 +14,6 @@ namespace LaptopShop_MVC.Models
         public int WriteSpeed { get; set; }
         public string ModelNumber { get; set; }
 
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }
