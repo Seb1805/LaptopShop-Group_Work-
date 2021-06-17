@@ -16,5 +16,8 @@ namespace LaptopShop_MVC.Models
         public int Brightness { get; set; }
         public bool Touch { get; set; }
         public string SyncType { get; set; }
+
+        public virtual IEnumerable<Product> Products { get; set; }
     }
+
 }
