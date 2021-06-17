@@ -15,6 +15,9 @@ namespace LaptopShop_MVC.Data
 
         }
 
+
+
+
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Battery> Batteries { get; set; }
         public DbSet<Bluetooth> Bluetooth { get; set; }
