@@ -8,5 +8,6 @@ namespace LaptopShop_MVC.Models
     {
         public int BrandId { get; set; }
         public string BrandName { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

@@ -8,5 +8,7 @@ namespace LaptopShop_MVC.Models
     {
         public int ColorId { get; set; }
         public string ColorName { get; set; }
+
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }

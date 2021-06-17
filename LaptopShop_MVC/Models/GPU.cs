@@ -10,5 +10,6 @@ namespace LaptopShop_MVC.Models
         public string Description { get; set; }
         public int Vram { get; set; }
         public int BrandId { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
     }
 }
