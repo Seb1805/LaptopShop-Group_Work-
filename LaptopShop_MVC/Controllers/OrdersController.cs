@@ -7,26 +7,31 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LaptopShop_MVC.Data;
 using LaptopShop_MVC.Models;
+using LaptopShop_MVC.Repositories;
 
 namespace LaptopShop_MVC.Controllers
 {
     public class OrdersController : Controller
     {
-        private readonly LaptopContext _context;
+        private readonly IOrder _repo;
 
-        public OrdersController(LaptopContext context)
+        public OrdersController(IOrder repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: Orders
-        public async Task<IActionResult> Index()
+        public ActionResult Index()
         {
-            var laptopContext = _context.Orders.Include(o => o.Customer).Include(o => o.Address).ThenInclude(o => o.postalCode);
-            return View(await laptopContext.ToListAsync());
+            return View(_repo.GetAllOrders());
         }
 
         // GET: Orders/Details/5
+        public ActionResult Details(int id)
+        {
+            return View(_repo.GetOrderbyId(id));
+        }
+        /*
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,7 +39,7 @@ namespace LaptopShop_MVC.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Orders
+            var order = await _repo.Orders
                 .Include(o => o.Address)
                 .Include(o => o.Customer)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -49,8 +54,8 @@ namespace LaptopShop_MVC.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressId");
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+            ViewData["AddressId"] = new SelectList(_repo.Addresses, "AddressId", "AddressId");
+            ViewData["CustomerId"] = new SelectList(_repo.Customers, "CustomerId", "CustomerId");
             return View();
         }
 
@@ -63,12 +68,12 @@ namespace LaptopShop_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(order);
-                await _context.SaveChangesAsync();
+                _repo.Add(order);
+                await _repo.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressId", order.AddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", order.CustomerId);
+            ViewData["AddressId"] = new SelectList(_repo.Addresses, "AddressId", "AddressId", order.AddressId);
+            ViewData["CustomerId"] = new SelectList(_repo.Customers, "CustomerId", "CustomerId", order.CustomerId);
             return View(order);
         }
 
@@ -80,13 +85,13 @@ namespace LaptopShop_MVC.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _repo.Orders.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressId", order.AddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", order.CustomerId);
+            ViewData["AddressId"] = new SelectList(_repo.Addresses, "AddressId", "AddressId", order.AddressId);
+            ViewData["CustomerId"] = new SelectList(_repo.Customers, "CustomerId", "CustomerId", order.CustomerId);
             return View(order);
         }
 
@@ -106,8 +111,8 @@ namespace LaptopShop_MVC.Controllers
             {
                 try
                 {
-                    _context.Update(order);
-                    await _context.SaveChangesAsync();
+                    _repo.Update(order);
+                    await _repo.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -122,8 +127,8 @@ namespace LaptopShop_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressId", order.AddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", order.CustomerId);
+            ViewData["AddressId"] = new SelectList(_repo.Addresses, "AddressId", "AddressId", order.AddressId);
+            ViewData["CustomerId"] = new SelectList(_repo.Customers, "CustomerId", "CustomerId", order.CustomerId);
             return View(order);
         }
 
@@ -135,7 +140,7 @@ namespace LaptopShop_MVC.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Orders
+            var order = await _repo.Orders
                 .Include(o => o.Address)
                 .Include(o => o.Customer)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -152,15 +157,16 @@ namespace LaptopShop_MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync();
+            var order = await _repo.Orders.FindAsync(id);
+            _repo.Orders.Remove(order);
+            await _repo.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderExists(int id)
         {
-            return _context.Orders.Any(e => e.OrderId == id);
+            return _repo.Orders.Any(e => e.OrderId == id);
         }
+        */
     }
 }

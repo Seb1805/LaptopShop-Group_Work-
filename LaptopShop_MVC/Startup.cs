@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using LaptopShop_MVC.Repositories;
 
 namespace LaptopShop_MVC
 {
@@ -26,6 +26,7 @@ namespace LaptopShop_MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IOrder, OrderRepo>();
             services.AddControllersWithViews();
             services.AddDbContext<LaptopContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("LaptopShop")));

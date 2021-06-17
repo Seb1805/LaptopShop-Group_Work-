@@ -26,5 +26,11 @@ namespace LaptopShop_MVC.Models
         public string ModelNumber { get; set; }
         public int Price { get; set; }
 
+        public virtual CPU CPU { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
